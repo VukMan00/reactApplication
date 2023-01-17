@@ -1,38 +1,84 @@
-.App {
+body{
+  background-image: url('https://images.alphacoders.com/453/45373.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  font: normal 14px Roboto,arial,sans-serif;
+  font-family: 'Dancing Script', cursive!important;
+  color:aliceblue;
+  margin: 0px;
+}
+
+.navigationBar{
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.home,.playlist{
+  margin-left: 15px;
+  width: 10%;
+  height: 70%;
+  border-radius: 20px;
+  font-size: medium;
+  cursor:pointer;
+}
+
+.home:hover,
+.playlist:hover,
+.video:hover,
+.addToPlayList:hover{
+  background-color: #004C99;
+  color:aliceblue;
+  transition: background-color 0.5s linear 0.1s;
+}
+
+.description{
   text-align: center;
+  font-style: italic;
+  font-size: 40px;
+  font-weight: bolder;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.songs{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.song{
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-left: 20px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.imgCover{
+  width: auto;
+  border-radius: 20px;
+  height: 250px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.options{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.video,.addToPlayList{
+  margin-left: 10px;
+  width: 40%;
+  height: 25px;
+  border-radius: 20px;
+  font-size: larger;
+  cursor: pointer;
 }

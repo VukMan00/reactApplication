@@ -1,12 +1,12 @@
 import React from 'react'
 import Song from './Song'
 
-const Songs = ({songs}) => {
+const Songs = ({songs,addToPlayList}) => {
   return (
     <div className='songs'>
      {
         songs.map((song)=>(
-            <Song song={song} />
+            <Song key={song.id} song={song} addToPlayList={addToPlayList}/>
         ))
      }
     </div>

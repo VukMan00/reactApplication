@@ -16,17 +16,22 @@ body{
   padding-left: 10px;
 }
 
-.home,.playlist{
+.btnHome,.btnPlaylist{
+  background-color: aliceblue;
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: none;
   margin-left: 15px;
   width: 10%;
   height: 70%;
   border-radius: 20px;
   font-size: medium;
+  font-weight: bolder;
   cursor:pointer;
 }
 
-.home:hover,
-.playlist:hover,
+.btnHome:hover,
+.btnPlaylist:hover,
 .video:hover,
 .addToPlayList:hover{
   background-color: #004C99;
@@ -81,4 +86,18 @@ body{
   border-radius: 20px;
   font-size: larger;
   cursor: pointer;
+}
+
+.cartPlayList{
+  display:flex;
+  flex-direction: row;
+  position: fixed;
+  right: 20px;
+  top: 0;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.numberPlayList{
+  margin-left: 5px;
 }

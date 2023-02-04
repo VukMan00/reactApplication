@@ -1,7 +1,7 @@
 import React from 'react'
 import SongPlayList from './SongPlayList'
 
-const PlayList = ({songsInPlayList}) => {
+const PlayList = ({songsInPlayList,removeFromPlayList}) => {
   return (
     <div className='playList'>
         <div className="description">
@@ -9,7 +9,7 @@ const PlayList = ({songsInPlayList}) => {
         </div>
         <div className='songs'>
             {songsInPlayList.map((song)=>(
-                <SongPlayList key={song.id} song={song} />
+                <SongPlayList key={song.id} song={song} removeFromPlayList={removeFromPlayList}/>
             ))}
         </div>
     </div>

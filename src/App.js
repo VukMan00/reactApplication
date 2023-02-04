@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PlayList from './components/PlayList';
 
+
+
 function App() {
   const[numberPlayList,setPlayListNumber] = useState(0);
   const[songsInPlayList,setSongsInPlayList] = useState([]);
@@ -15,7 +17,7 @@ function App() {
       title:"As It Was",
       artist:"Harry Styles",
       video:"https://www.youtube.com/watch?v=H5v3kku4y6Q",
-      audio:"./audio/asItWas.mp3",
+      audio: "./audio/asItWas.mp3",
       amount:0
     },
     {
@@ -24,6 +26,7 @@ function App() {
       title:"Heat Waves",
       artist:"Glass Animals",
       video:"https://www.youtube.com/watch?v=mRD0-GxqHVo",
+      audio: "./audio/heatWaves.mp3",
       amount:0
     },
     {
@@ -32,6 +35,7 @@ function App() {
       title:"STAY(With Justin Bieber)",
       artist:"The Kid LAROI, Justin Bieber",
       video:"https://www.youtube.com/watch?v=kTJczUoc26U",
+      audio: "./audio/stay.mp3",
       amount:0
     },
     {
@@ -40,6 +44,7 @@ function App() {
       title:"Me Porto Bonito",
       artist:"Bad Bunny, Chencho Corleone",
       video:"https://www.youtube.com/watch?v=ZRnp5vwF5yA",
+      audio: "./audio/mePortoBonito.mp3",
       amount:0
     },
     {
@@ -48,6 +53,7 @@ function App() {
       title:"Titi Me Pregunto",
       artist:"Bad Bunny",
       video:"https://www.youtube.com/watch?v=SIeoZmBG2ks",
+      audio: "./audio/titiMePregunto.mp3",
       amount:0
     },
     {
@@ -56,6 +62,7 @@ function App() {
       title:"Cold Heart-PNAU Remix",
       artist:"Elthon John, Dua Lipa, PNAU",
       video:"https://www.youtube.com/watch?v=qod03PVTLqk",
+      audio: "./audio/coldHeart.mp3",
       amount:0
     },
     {
@@ -64,6 +71,7 @@ function App() {
       title:"Enemy",
       artist:"Imagine Dragons",
       video:"https://www.youtube.com/watch?v=D9G1VOjN_84",
+      audio: "./audio/enemy.mp3",
       amount:0
     },
     {
@@ -72,6 +80,7 @@ function App() {
       title:"Quevedo:Bzrp",
       artist:"Bizarrap, Quevedo",
       video:"https://www.youtube.com/watch?v=A_g3lMcWVy0",
+      audio: './audio/quevedoBzrp.mp3',
       amount:0
     },
     {
@@ -80,6 +89,7 @@ function App() {
       title:"Ojitos Lindos",
       artist:"Bad bunny, Bomba Estereo",
       video:"https://www.youtube.com/watch?v=DmimUfo8UrU",
+      audio: "./audio/ojitos.mp3",
       amount:0
     },
     {
@@ -88,6 +98,7 @@ function App() {
       title:"Running Up That Hill",
       artist:"Kate Bush",
       video:"https://www.youtube.com/watch?v=wp43OdtAAkM",
+      audio: "./audio/runningUpThatHill.mp3",
       amount:0
     }
   ]);
@@ -111,6 +122,18 @@ function App() {
     setPlayList();
   }
 
+  function removeFromPlayList(id){
+    songs.forEach((song)=>{
+      if(song.id === id && numberPlayList>0){
+        song.amount = 0;
+        setPlayListNumber(numberPlayList-1);
+      }
+    });
+
+    let playList = songsInPlayList.filter((song)=>song.id!=id);
+    setSongsInPlayList(playList);
+  }
+
   return (
     <BrowserRouter className="App">
       <NavBar numberPlayList={numberPlayList}/>
@@ -126,7 +149,7 @@ function App() {
             </>
           }
         />
-        <Route path="/playlist" element={<PlayList songsInPlayList={songsInPlayList}/>}/>
+        <Route path="/playlist" element={<PlayList songsInPlayList={songsInPlayList} removeFromPlayList={removeFromPlayList}/>}/>
       </Routes>
     </BrowserRouter>
   );

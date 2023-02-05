@@ -11,6 +11,7 @@ import SongDescription from './components/SongDescription';
 function App() {
   const[numberPlayList,setPlayListNumber] = useState(0);
   const[songsInPlayList,setSongsInPlayList] = useState([]);
+  const[searchText,setSearchText] = useState("");
   const [songs] = useState([
     {
       id:1,
@@ -51,8 +52,7 @@ function App() {
       artist:"Bad Bunny, Chencho Corleone",
       video:"https://www.youtube.com/embed/saGYMhApaH8",
       audio: "./audio/mePortoBonito.mp3",
-      descritpion: "'Stay' is a song by Australian rapper and singer the Kid Laroi and Canadian singer Justin Bieber. It was released through Grade A Productions and Columbia Records on 9 July 2021, as the lead single (sixth overall) from Laroi's reloaded mixtape, F*ck Love 3: Over You. Laroi and Bieber wrote the song with Haan, FnZ members Finatik & Zac, and producers Cashmere Cat, Charlie Puth, Omer Fedi, and Blake Slatkin. The song marks the second collaboration between the two artists, following Bieber's song, 'Unstable', a track from his sixth studio album, Justice."
-      + "\n" + "'Stay' peaked at number one on the Billboard Hot 100, becoming Laroi's first chart-topping song and Bieber's eighth. The song additionally topped the Billboard Global 200. Furthermore, it reached number one in 21 other countries, including their respective natives Australia and Canada, along with Germany, the Netherlands, New Zealand, Norway, South Korea, and Sweden. It also peaked within the top ten in 18 other countries. It is the fastest song to reach the milestone of two billion streams on Spotify. At the 2021 ARIA Music Awards, the song won the ARIA Award for Best Pop Release, which resulted in Laroi and Bieber both winning the ARIA Award for Best Artist.[1] At the APRA Music Awards of 2022, the song won the award for Song of the Year.[2]",
+      descritpion: "'Me Porto Bonito' (English: 'I'll Behave Nicely') is a song by Puerto Rican rapper Bad Bunny and Puerto Rican singer Chencho Corleone from the former's fifth studio album Un Verano Sin Ti (2022) featured as the fifth single, following 'Callaíta', 'Moscow Mule', 'Tití Me Preguntó' and 'Después de la Playa'. The song was written by Benito Martínez and Orlando Valle but its production was handled by MAG, Subelo NEO, La Paciencia and Lennex.",
       amount:0
     },
     {
@@ -152,30 +152,26 @@ function App() {
     setSongsInPlayList(playList);
   }
 
-  function searchSongs(title){
-    console.log(title)
+  function search(text){
+    setSearchText(text);
   }
 
   return (
     <BrowserRouter className="App">
-      <NavBar numberPlayList={numberPlayList}/>
+      <NavBar numberPlayList={numberPlayList} search={search}/>
       <Routes>
         <Route 
           path="/"
           element={
             <>
-              <div className="search-field">
-                <label id="lblSearch" htmlFor="search">Search</label>
-                <input id="search" className="search" type="text" placeholder="Search songs" onBlur={searchSongs} />
-              </div>
               <div className='description'>
                 <h1 className='desc'>Top Tracks of 2022</h1>
               </div>
-              <Songs songs={songs} addToPlayList={addToPlayList} />
+              <Songs songs={songs} addToPlayList={addToPlayList} searchText={searchText} />
             </>
           }
         />
-        <Route path="/playlist" element={<PlayList songsInPlayList={songsInPlayList} removeFromPlayList={removeFromPlayList}/>}/>
+        <Route path="/playlist" element={<PlayList songsInPlayList={songsInPlayList} removeFromPlayList={removeFromPlayList} searchText={searchText}/>}/>
         <Route path="/songDesc" element={<SongDescription />} />
       </Routes>
     </BrowserRouter>

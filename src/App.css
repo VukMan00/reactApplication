@@ -163,6 +163,13 @@ body{
   font-size: medium;
 }
 
+.data{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 
 
 

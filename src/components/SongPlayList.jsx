@@ -54,6 +54,9 @@ const SongPlayList = ({song,removeFromPlayList}) => {
     artist:song.artist,
     video:song.video,
     descritpion:song.descritpion,
+    views:song.views,
+    likes:song.likes,
+    dislikes:song.dislikes
   });
 
   return (

@@ -6,7 +6,7 @@ import {AiOutlineLike} from 'react-icons/ai';
 import {AiOutlineDislike} from 'react-icons/ai';
 import {BsPersonCheck} from 'react-icons/bs';
 
-const SongStat = () => {
+const SongDescription = () => {
 
   const location = useLocation();
   const songDesc = location.state?.songDesc;
@@ -31,4 +31,4 @@ const SongStat = () => {
   )
 }
 
-export default SongStat
+export default SongDescription

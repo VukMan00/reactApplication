@@ -170,6 +170,45 @@ body{
   font-family: 'Courier New', Courier, monospace;
 }
 
+.info{
+  margin-top: 40px;
+  border-top: 10px solid white;
+  border-radius: 30px;
+}
+
+.sources-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.youtube,.spotify,.wikipedia{
+  color:white;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 50px;
+  height: 60px;
+}
+
+.youtube:hover,
+.spotify:hover,
+.wikipedia:hover{
+  color:blue;
+  transition: color 0.5s linear 0.1s;
+}
+
+.privacy-policy{
+  margin-left: 25%;
+  width: 50%;
+}
+
+#sites{
+  font-style: italic;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 
 
 

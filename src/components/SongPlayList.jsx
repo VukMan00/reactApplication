@@ -17,7 +17,7 @@ import { useState } from 'react';
 
 const SongPlayList = ({song,removeFromPlayList}) => {
   var audio;
-  if(song.title === "As it Was"){
+  if(song.title === "As It Was"){
     audio = asItWas;
   }
   if(song.title === "Heat Waves"){
